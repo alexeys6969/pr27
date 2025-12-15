@@ -13,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Cinema_Shashin
+namespace Cinema_Shashin.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Cinemas.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Cinemas : Page
     {
-        public static MainWindow mainWindow;
-        public MainWindow()
+        public Cinemas()
         {
             InitializeComponent();
-            mainWindow = this;
-            frame.Navigate(new Pages.Cinemas());
         }
     }
 }
