@@ -23,6 +23,8 @@ namespace Cinema_Shashin.Pages
         public Cinemas()
         {
             InitializeComponent();
+
+
         }
     }
 }
