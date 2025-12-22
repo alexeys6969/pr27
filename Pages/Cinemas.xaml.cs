@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Cinema_Shashin.Elements;
 
 namespace Cinema_Shashin.Pages
 {
@@ -20,11 +21,16 @@ namespace Cinema_Shashin.Pages
     /// </summary>
     public partial class Cinemas : Page
     {
+        public List<Classes.Cinemas> _cinemas;
         public Cinemas()
         {
             InitializeComponent();
-
-
+            MainWindow.mainWindow.LoadCinemas();
+            var _cinemas = MainWindow.mainWindow.cinemas;
+            foreach(var cinemas in _cinemas)
+            {
+                parent.Children.Add(new CinemasItm(cinemas));
+            }
         }
     }
 }

@@ -30,23 +30,26 @@ namespace Cinema_Shashin
             InitializeComponent();
             mainWindow = this;
             frame.Navigate(new Pages.Cinemas());
-            LoadCinemas();
         }
 
         public void LoadCinemas()
         {
             cinemas.Clear();
-            string connection = "server=localhost;port=3306;database=Cinemas;uid=root;";
+            string connection = "server=localhost;port=3307;database=Cinemas;uid=root;";
             MySqlConnection mySqlConnection = new MySqlConnection(connection);
             mySqlConnection.Open();
-            string query = $"SELECT * FROM Cinema";
+            string query = $"SELECT id, titile, hall_count, SUM(capacity) " +
+                $"FROM Cinema " +
+                $"JOIN Halls ON id = cinema_id " +
+                $"GROUP BY id, titile;";
             MySqlDataReader reader = Connection.Query(query, mySqlConnection);
             while (reader.Read())
             {
                 cinemas.Add(new Cinemas(
                     reader.GetInt32(0),
                     reader.GetString(1),
-                    reader.GetInt32(2)
+                    reader.GetInt32(2),
+                    reader.GetInt32(3)
                     ));
             }
             mySqlConnection.Close();
