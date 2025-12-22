@@ -38,10 +38,7 @@ namespace Cinema_Shashin
             string connection = "server=localhost;port=3307;database=Cinemas;uid=root;";
             MySqlConnection mySqlConnection = new MySqlConnection(connection);
             mySqlConnection.Open();
-            string query = $"SELECT id, titile, hall_count, SUM(capacity) " +
-                $"FROM Cinema " +
-                $"JOIN Halls ON id = cinema_id " +
-                $"GROUP BY id, titile;";
+            string query = $"SELECT * FROM `cinema`";
             MySqlDataReader reader = Connection.Query(query, mySqlConnection);
             while (reader.Read())
             {
@@ -53,6 +50,25 @@ namespace Cinema_Shashin
                     ));
             }
             mySqlConnection.Close();
+        }
+
+
+        public void AddCinema(string title, int hallCount, int seatsCount)
+        {
+            string connect = "server=localhost;port=3307;database=Cinemas;uid=root;";
+            using (var connection = new MySqlConnection(connect))
+            {
+                connection.Open();
+                string query = "INSERT INTO Cinema (title, hall_count, total_seats) VALUES (@title, @hallCount, @seatsCount);";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@title", title);
+                    command.Parameters.AddWithValue("@hallCount", hallCount);
+                    command.Parameters.AddWithValue("@seatsCount", seatsCount);
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

@@ -104,6 +104,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\AddCinema.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Elements\CinemasItm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +122,9 @@
     </Compile>
     <Compile Include="Classes\Cinemas.cs" />
     <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Elements\AddCinema.xaml.cs">
+      <DependentUpon>AddCinema.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\CinemasItm.xaml.cs">
       <DependentUpon>CinemasItm.xaml</DependentUpon>
     </Compile>
@@ -125,12 +132,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddCin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Cinemas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AddCin.xaml.cs">
+      <DependentUpon>AddCin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Cinemas.xaml.cs">
       <DependentUpon>Cinemas.xaml</DependentUpon>
     </Compile>

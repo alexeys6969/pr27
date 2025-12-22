@@ -31,6 +31,7 @@ namespace Cinema_Shashin.Pages
             {
                 parent.Children.Add(new CinemasItm(cinemas));
             }
+            parent.Children.Add(new AddCinema());
         }
     }
 }
