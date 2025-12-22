@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Cinema_Shashin.Elements.CinemasItm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Cinema_Shashin.Elements"
+             mc:Ignorable="d" Height="262" Width="628">
+    <Border CornerRadius="10,10,10,10" BorderThickness="1" BorderBrush="Black" Background="White">
+        <Grid Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" VerticalAlignment="Center">
+                <Label x:Name="cinemaName" Content="Киномакс" FontSize="30"  VerticalAlignment="Top" Margin="25,0,0,0" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <Label x:Name="countHalls" Content="Количество залов: " FontSize="20" Margin="25,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                <Label x:Name="countSit" Content="Количество мест: " FontSize="20"  Margin="25,100,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            </Grid>
+            <Grid Grid.Column="1" VerticalAlignment="Center">
+                <Button Content="Посмотреть афишу" Click="afishaCheck" BorderThickness="0" Foreground="White" Background="MediumSeaGreen" VerticalAlignment="Top" Margin="10,0,10,0" Height="30"/>
+                <Button Content="Изменить информацию" Click="cinemaEdit" BorderThickness="0" Foreground="White" Background="Red" VerticalAlignment="Top" Margin="10,40,10,0" Height="30"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
