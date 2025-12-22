@@ -38,7 +38,7 @@ namespace Cinema_Shashin.Elements
 
         private void cinemaEdit(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.mainWindow.frame.Navigate(new Pages.EditCinema(cinemas));
         }
     }
 }

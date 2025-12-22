@@ -140,6 +140,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\EditCinema.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\AddCin.xaml.cs">
@@ -147,6 +151,9 @@
     </Compile>
     <Compile Include="Pages\Cinemas.xaml.cs">
       <DependentUpon>Cinemas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditCinema.xaml.cs">
+      <DependentUpon>EditCinema.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

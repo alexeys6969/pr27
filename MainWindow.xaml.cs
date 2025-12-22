@@ -53,7 +53,7 @@ namespace Cinema_Shashin
         }
 
 
-        public void AddCinema(string title, int hallCount, int seatsCount)
+        public void AddCinema(Cinemas _cinema)
         {
             string connect = "server=localhost;port=3307;database=Cinemas;uid=root;";
             using (var connection = new MySqlConnection(connect))
@@ -63,9 +63,31 @@ namespace Cinema_Shashin
 
                 using (var command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@title", title);
-                    command.Parameters.AddWithValue("@hallCount", hallCount);
-                    command.Parameters.AddWithValue("@seatsCount", seatsCount);
+                    command.Parameters.AddWithValue("@title", _cinema.Title);
+                    command.Parameters.AddWithValue("@hallCount", _cinema.Hall_Count);
+                    command.Parameters.AddWithValue("@seatsCount", _cinema.Total_Seats);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void EditCinema(Cinemas _cinema)
+        {
+            string connect = "server=localhost;port=3307;database=Cinemas;uid=root;";
+            using (var connection = new MySqlConnection(connect))
+            {
+                connection.Open();
+                string query = "UPDATE Cinema set title = @title, " +
+                    "hall_count = @hallCount, " +
+                    "total_seats = @seatsCount " +
+                    "WHERE id = @id;";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@id", _cinema.Id);
+                    command.Parameters.AddWithValue("@title", _cinema.Title);
+                    command.Parameters.AddWithValue("@hallCount", _cinema.Hall_Count);
+                    command.Parameters.AddWithValue("@seatsCount", _cinema.Total_Seats);
                     command.ExecuteNonQuery();
                 }
             }
