@@ -27,13 +27,30 @@ namespace Cinema_Shashin.Pages.Afisha
             InitializeComponent();
             cinemas = _cinemas;
             cinemaLabel.Content += cinemas.Title;
+            MainWindow.mainWindow.afishas.Clear();
             MainWindow.mainWindow.LoadAfishas(cinemas);
+            if(MainWindow.mainWindow.afishas.Count == 0)
+            {
+                parent.Children.Add(new TextBlock
+                {
+                    Text = "Сеансов не найдено",
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    FontSize = 30,
+                    Margin = new Thickness(0,20,0,20)
+                });
+            }
             var _afishas = MainWindow.mainWindow.afishas;
             foreach (var afishas in _afishas)
             {
                 parent.Children.Add(new AfishaItm(afishas));
             }
             parent.Children.Add(new AddCinema());
+        }
+
+        private void exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow.mainWindow.frame.Navigate(new Cinemas());
         }
     }
 }

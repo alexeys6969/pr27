@@ -23,7 +23,7 @@
                     <TextBox x:Name="seatsCountTb" HorizontalAlignment="Stretch" Margin="15,20,15,0" Height="25"/>
                     <Button Content="Обновить кинотеатр" Click="editCinema" Foreground="White" HorizontalAlignment="Stretch" Margin="15,20,15,0" Height="25" BorderThickness="0" Background="MediumSeaGreen"/>
                     <Button Content="Назад" Click="exit" Foreground="White" HorizontalAlignment="Stretch" Margin="15,20,15,0" Height="25" BorderThickness="0" Background="Black"/>
-                    <Button Content="Удалить кинотеатр" Click="deleteCinema" Foreground="White" HorizontalAlignment="Stretch" Margin="15,20,15,0" Height="25" BorderThickness="0" Background="Red"/>
+                    <Button Content="Удалить кинотеатр" Click="deleteCinema" Foreground="White" HorizontalAlignment="Stretch" Margin="15,20,15,20" Height="25" BorderThickness="0" Background="Red"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
