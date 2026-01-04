@@ -19,6 +19,12 @@ namespace Cinema_Shashin.Classes
             this.Hall_Count = hall_count;
             Total_Seats = total_Seats;
         }
+        public Cinemas(string title, int hall_count, int total_Seats)
+        {
+            this.Title = title;
+            this.Hall_Count = hall_count;
+            this.Total_Seats = total_Seats;
+        }
 
     }
 }

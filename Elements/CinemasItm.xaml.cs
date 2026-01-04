@@ -33,7 +33,7 @@ namespace Cinema_Shashin.Elements
 
         private void afishaCheck(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.mainWindow.frame.Navigate(new Pages.Afisha.Afishas(cinemas));
         }
 
         private void cinemaEdit(object sender, RoutedEventArgs e)
