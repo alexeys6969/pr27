@@ -23,19 +23,21 @@ namespace Cinema_Shashin.Elements
     public partial class AfishaItm : UserControl
     {
         Afish afishas;
-        public AfishaItm(Afish _afish)
+        Cinemas cinemas;
+        public AfishaItm(Afish _afish, Cinemas cinemas)
         {
             InitializeComponent();
             afishas = _afish;
             movie.Content = afishas.movie;
             date_seans.Content += afishas.date_seans.ToString("dd MMMM");
-            time_film.Content += afishas.time_film.ToString();
+            time_film.Content += afishas.time_film.ToString().Remove(5,3);
             price.Content += $"{afishas.price}₽";
+            this.cinemas = cinemas;
         }
 
         private void afishaEdit(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.mainWindow.frame.Navigate(new Pages.Afisha.EditAfishaInfo(afishas, cinemas));
         }
 
         private void afishaDelete(object sender, RoutedEventArgs e)

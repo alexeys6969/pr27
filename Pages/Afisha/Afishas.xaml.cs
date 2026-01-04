@@ -43,9 +43,9 @@ namespace Cinema_Shashin.Pages.Afisha
             var _afishas = MainWindow.mainWindow.afishas;
             foreach (var afishas in _afishas)
             {
-                parent.Children.Add(new AfishaItm(afishas));
+                parent.Children.Add(new AfishaItm(afishas, cinemas));
             }
-            parent.Children.Add(new AddCinema());
+            parent.Children.Add(new AddAfisha(cinemas));
         }
 
         private void exit(object sender, RoutedEventArgs e)

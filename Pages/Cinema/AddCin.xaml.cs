@@ -43,5 +43,9 @@ namespace Cinema_Shashin.Pages
 
         }
 
+        private void exit(object sender, RoutedEventArgs e)
+        {
+            MainWindow.mainWindow.frame.Navigate(new Pages.Cinemas());
+        }
     }
 }

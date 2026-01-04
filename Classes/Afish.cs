@@ -25,5 +25,14 @@ namespace Cinema_Shashin.Classes
             this.time_film = time_film;
             this.price = price;
         }
+
+        public Afish(int cinema_id, string movie, DateTime date_seans, TimeSpan time_film, decimal price)
+        {
+            this.cinema_id = cinema_id;
+            this.movie = movie;
+            this.date_seans = date_seans;
+            this.time_film = time_film;
+            this.price = price;
+        }
     }
 }

@@ -21,6 +21,7 @@
                 <TextBlock Text="Введите количество мест:" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15,20,0,0"/>
                 <TextBox x:Name="seatsCountTb" HorizontalAlignment="Stretch" Margin="15,20,15,0" Height="25"/>
                 <Button Content="Добавить кинотеатр" Click="editCinema" Foreground="White" HorizontalAlignment="Stretch" Margin="15,20,15,0" Height="25" BorderThickness="0" Background="MediumSeaGreen"/>
+                <Button Content="Назад" Click="exit" Foreground="White" HorizontalAlignment="Stretch" Margin="15,20,15,20" Height="25" BorderThickness="0" Background="Black"/>
             </StackPanel>
         </Grid>
     </Grid>

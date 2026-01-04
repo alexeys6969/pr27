@@ -95,6 +95,21 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.5.0.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.5.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.5.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.5.0.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=5.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.5.0.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="ZstdSharp, Version=0.8.6.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
       <HintPath>packages\ZstdSharp.Port.0.8.6\lib\net462\ZstdSharp.dll</HintPath>
     </Reference>
@@ -104,6 +119,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Elements\AddAfisha.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Elements\AddCinema.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +146,9 @@
     <Compile Include="Classes\Afish.cs" />
     <Compile Include="Classes\Cinemas.cs" />
     <Compile Include="Classes\Connection.cs" />
+    <Compile Include="Elements\AddAfisha.xaml.cs">
+      <DependentUpon>AddAfisha.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\AddCinema.xaml.cs">
       <DependentUpon>AddCinema.xaml</DependentUpon>
     </Compile>
@@ -141,6 +163,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\Afisha\Afishas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Afisha\EditAfishaInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,6 +186,9 @@
   <ItemGroup>
     <Compile Include="Pages\Afisha\Afishas.xaml.cs">
       <DependentUpon>Afishas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Afisha\EditAfishaInfo.xaml.cs">
+      <DependentUpon>EditAfishaInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Cinema\AddCin.xaml.cs">
       <DependentUpon>AddCin.xaml</DependentUpon>

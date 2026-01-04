@@ -23,9 +23,10 @@ namespace Cinema_Shashin
             frame.Navigate(new Pages.Cinemas());
         }
 
+        #region Afishas
         public void LoadAfishas(Cinemas cinema)
         {
-            cinemas.Clear();
+            afishas.Clear();
             MySqlConnection mySqlConnection = new MySqlConnection(connection);
             mySqlConnection.Open();
             string query = $"SELECT * FROM `afisha` where cinema_id = {cinema.Id}";
@@ -44,6 +45,60 @@ namespace Cinema_Shashin
             mySqlConnection.Close();
         }
 
+        public void AddAfisha(Afish _afish)
+        {
+            using (var connect = new MySqlConnection(connection))
+            {
+                connect.Open();
+                string query = "INSERT INTO afisha (cinema_id, movie, date_seans, time_film, price) VALUES (@cinema_id, @movie, @date_seans, @time_film, @price);";
+
+                using (var command = new MySqlCommand(query, connect))
+                {
+                    try
+                    {
+                        command.Parameters.AddWithValue("@cinema_id", _afish.cinema_id);
+                        command.Parameters.AddWithValue("@movie", _afish.movie);
+                        command.Parameters.AddWithValue("@date_seans", _afish.date_seans);
+                        command.Parameters.AddWithValue("@time_film", _afish.time_film);
+                        command.Parameters.AddWithValue("@price", _afish.price);
+                        command.ExecuteNonQuery();
+                    }
+                    catch (MySqlException ex)
+                    {
+                        MessageBox.Show(ex.Message.ToString());
+                    }
+
+                }
+            }
+        }
+
+        public void EditAfisha(Afish _afish)
+        {
+            using (var connect = new MySqlConnection(connection))
+            {
+                connect.Open();
+                string query = "UPDATE afisha set cinema_id = @cinema_id, " +
+                    "movie = @movie, " +
+                    "date_seans = @date_seans, " +
+                    "time_film = @time_film, " +
+                    "price = @price " +
+                    "WHERE id = @id;";
+
+                using (var command = new MySqlCommand(query, connect))
+                {
+                    command.Parameters.AddWithValue("@id", _afish.id);
+                    command.Parameters.AddWithValue("@cinema_id", _afish.cinema_id);
+                    command.Parameters.AddWithValue("@movie", _afish.movie);
+                    command.Parameters.AddWithValue("@date_seans", _afish.date_seans);
+                    command.Parameters.AddWithValue("@time_film", _afish.time_film);
+                    command.Parameters.AddWithValue("@price", _afish.price);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        #endregion
+        #region Cinema
         public void LoadCinemas()
         {
             cinemas.Clear();
@@ -122,5 +177,7 @@ namespace Cinema_Shashin
                 }
             }
         }
+
+        #endregion
     }
 }
