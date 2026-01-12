@@ -1,4 +1,5 @@
 ﻿using Cinema_Shashin.Classes;
+using Cinema_Shashin.Pages;
 using Cinema_Shashin.Pages.Afisha;
 using MySql.Data.MySqlClient;
 using System.Collections.Generic;
@@ -11,10 +12,10 @@ namespace Cinema_Shashin
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Cinemas> cinemas = new List<Cinemas>();
+        public List<Classes.Cinemas> cinemas = new List<Classes.Cinemas>();
         public List<Afish> afishas = new List<Afish>();
         public static MainWindow mainWindow;
-        public string connection = "server=localhost;port=3307;database=Cinemas;uid=root;";
+        public string connection = "server=localhost;port=3306;database=Cinemas;uid=root;";
 
         public MainWindow()
         {
@@ -24,7 +25,7 @@ namespace Cinema_Shashin
         }
 
         #region Afishas
-        public void LoadAfishas(Cinemas cinema)
+        public void LoadAfishas(Classes.Cinemas cinema)
         {
             afishas.Clear();
             MySqlConnection mySqlConnection = new MySqlConnection(connection);
@@ -97,6 +98,21 @@ namespace Cinema_Shashin
             }
         }
 
+        public void DeleteAfisha(Afish _afish)
+        {
+            using (var connect = new MySqlConnection(connection))
+            {
+                connect.Open();
+                string query = "DELETE FROM afisha where id = @Id";
+
+                using (var command = new MySqlCommand(query, connect))
+                {
+                    command.Parameters.AddWithValue("@id", _afish.id);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         #endregion
         #region Cinema
         public void LoadCinemas()
@@ -108,7 +124,7 @@ namespace Cinema_Shashin
             MySqlDataReader reader = Connection.Query(query, mySqlConnection);
             while (reader.Read())
             {
-                cinemas.Add(new Cinemas(
+                cinemas.Add(new Classes.Cinemas(
                     reader.GetInt32(0),
                     reader.GetString(1),
                     reader.GetInt32(2),
@@ -117,7 +133,7 @@ namespace Cinema_Shashin
             }
             mySqlConnection.Close();
         }
-        public void AddCinema(Cinemas _cinema)
+        public void AddCinema(Classes.Cinemas _cinema)
         {
                 using (var connect = new MySqlConnection(connection))
                 {
@@ -142,7 +158,7 @@ namespace Cinema_Shashin
                 }
         }
 
-        public void EditCinema(Cinemas _cinema)
+        public void EditCinema(Classes.Cinemas _cinema)
         {
             using (var connect = new MySqlConnection(connection))
             {
@@ -163,7 +179,7 @@ namespace Cinema_Shashin
             }
         }
 
-        public void DeleteCinema(Cinemas _cinema)
+        public void DeleteCinema(Classes.Cinemas _cinema)
         {
             using (var connect = new MySqlConnection(connection))
             {

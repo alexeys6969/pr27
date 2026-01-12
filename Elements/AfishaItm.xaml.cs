@@ -42,7 +42,15 @@ namespace Cinema_Shashin.Elements
 
         private void afishaDelete(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                MainWindow.mainWindow.DeleteAfisha(afishas);
+                MessageBox.Show("Удаление успешно");
+                MainWindow.mainWindow.frame.Navigate(new Pages.Afisha.Afishas(cinemas));
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
